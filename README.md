@@ -10,8 +10,7 @@
 - [Usage](#usage)  
 - [API Endpoints](#api-endpoints)  
 - [Folder Structure](#folder-structure)  
-- [Contributing](#contributing)  
-- [License](#license)  
+
 
 ---
 
