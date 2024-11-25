@@ -34,6 +34,7 @@ export const sendOTP = async (req: Request, res: Response): Promise<void> => {
       }
       // Create new user for sign-up process
       existingUser = new User({ name, dob,email, otp: null, otpExpiresAt: null });
+      await existingUser.save()
     }
 
     // Handle Login
@@ -52,7 +53,7 @@ export const sendOTP = async (req: Request, res: Response): Promise<void> => {
     // Save the OTP and its expiry in the database
     existingUser = await User.findOneAndUpdate(
       { email },
-      { otp, otpExpiresAt: Date.now() + 10 * 60 * 1000 }, // OTP valid for 10 minutes
+      { dob,name,otp, otpExpiresAt: Date.now() + 10 * 60 * 1000 }, // OTP valid for 10 minutes
       { new: true, upsert: true }
     );
 
